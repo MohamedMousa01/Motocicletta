@@ -1,19 +1,23 @@
 package it.prova.models;
 
+import java.util.Date;
+
 public class Motocicletta {
 
     private long id;
     private String marca;
     private String modello;
     private Integer cilindrata;
+    private Date dataImmatricolazione;
 
     public Motocicletta(){}
 
-    public Motocicletta(long id, String marca, String modello, Integer cilindrata){
+    public Motocicletta(long id, String marca, String modello, Integer cilindrata, Date dataImmatricolazione){
         this.id = id;
         this.marca = marca;
         this.modello = modello;
         this.cilindrata = cilindrata;
+        this.dataImmatricolazione = dataImmatricolazione;
     }
 
     public long getId() {
@@ -46,6 +50,14 @@ public class Motocicletta {
 
     public void setCilindrata(Integer cilindrata) {
         this.cilindrata = cilindrata;
+    }
+
+    public Date getDataImmatricolazione() {
+        return dataImmatricolazione;
+    }
+
+    public void setDataImmatricolazione(Date dataImmatricolazione) {
+        this.dataImmatricolazione = dataImmatricolazione;
     }
 
 }

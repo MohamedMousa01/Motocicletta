@@ -27,7 +27,7 @@ public class MotociclettaDAO {
         try {
 
             c = MyConnection.getConnection();
-            ps = c.prepareStatement("select * from lavoratore u where u.id=?;");
+            ps = c.prepareStatement("select * from motociclettajdbc u where u.id=?;");
             ps.setLong(1, input);
 
             rs = ps.executeQuery();
@@ -72,12 +72,14 @@ public class MotociclettaDAO {
 
             c = MyConnection.getConnection();
             ps = c.prepareStatement("SELECT * FROM motociclettajdbc");
+            rs = ps.executeQuery();
 
             while(rs.next()){
                 temp = new Motocicletta();
                 temp.setId(rs.getLong("id"));
                 temp.setMarca(rs.getString("marca"));
                 temp.setModello(rs.getString("modello"));
+                temp.setCilindrata(rs.getInt("cilindrata"));
                 temp.setDataImmatricolazione(rs.getDate("dataimmatricolazione"));
                 result.add(temp);
             }
@@ -113,7 +115,7 @@ public class MotociclettaDAO {
         try {
 
             c = MyConnection.getConnection();
-            ps = c.prepareStatement("UPDATE lavoratore SET marca=?, modello=?, cilindrata=?, dataimmatricolazione=? where id=?;");
+            ps = c.prepareStatement("UPDATE motociclettajdbc SET marca=?, modello=?, cilindrata=?, dataimmatricolazione=? where id=?;");
             ps.setString(1, input.getMarca());
             ps.setString(2, input.getModello());
             // quando si fa il setDate serve un tipo java.sql.Date
@@ -156,7 +158,7 @@ public class MotociclettaDAO {
         try {
 
             c = MyConnection.getConnection();
-            ps = c.prepareStatement("DELETE from lavoratore where id=?;");
+            ps = c.prepareStatement("DELETE from motociclettajdbc where id=?;");
             ps.setLong(1, inputId);
 
             result = ps.executeUpdate();
@@ -190,7 +192,7 @@ public class MotociclettaDAO {
         try {
 
             c = MyConnection.getConnection();
-            ps = c.prepareStatement("INSERT INTO lavoratore (marca, modello, cilindrata, dataimmatricolazione) VALUES (?, ?, ?,?) ");
+            ps = c.prepareStatement("INSERT INTO motociclettajdbc (marca, modello, cilindrata, dataimmatricolazione) VALUES (?, ?, ?,?) ");
             ps.setString(1, input.getMarca());
             ps.setString(2, input.getModello());
             // quando si fa il setDate serve un tipo java.sql.Date

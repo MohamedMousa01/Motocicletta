@@ -60,4 +60,14 @@ public class Motocicletta {
         this.dataImmatricolazione = dataImmatricolazione;
     }
 
+    @Override
+    public String toString() {
+        return "Motocicletta{" +
+                "id=" + id +
+                ", marca='" + marca + '\'' +
+                ", modello='" + modello + '\'' +
+                ", cilindrata=" + cilindrata +
+                ", dataImmatricolazione=" + dataImmatricolazione +
+                '}';
+    }
 }
